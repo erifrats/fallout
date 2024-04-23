@@ -25,12 +25,11 @@ with builtins;
 
     # Images will be in `/tmp`.
     emptyDiskImages = [
-      (1 * 1024)
-      (1 * 1024)
-      (1 * 1024)
-      (1 * 1024)
+      (20 * 1024)
+      (20 * 1024)
     ];
-    diskSize = 2 * 1024;
+
+    diskSize = 1 * 1024;
     diskImage = "artifacts/vm.qcow2";
     qemu.diskInterface = "scsi";
 
@@ -53,9 +52,14 @@ with builtins;
   };
 
   environment.systemPackages = with pkgs; [
-    (writeShellScriptBin "stargate" ''
-      exec bash /src/src/stargate/main.sh "$@"
-    '')
+    (
+      writeShellScriptBin "stargate" ''
+        exec bash /src/src/stargate/main.sh "$@"
+      ''
+    )
+    gum
+    scrub
+    disko
   ];
 
   environment.loginShellInit = ''

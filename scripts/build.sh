@@ -1,3 +1,3 @@
 #!/bin/sh
 
-nix-build --expr '(import <nixpkgs> {}).callPackage ./default.nix {}'
+nix-build --expr "with import <nixpkgs> {}; callPackage ./default.nix {}"

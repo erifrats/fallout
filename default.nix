@@ -1,14 +1,26 @@
-{ stdenv }:
+{ lib
+, stdenv
+, makeWrapper
+, gum
+, scrub
+, disko
+}:
 
 stdenv.mkDerivation {
   name = "stargate";
+
   src = ./src;
 
-  propagatedBuildInputs = [ ];
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
     mkdir -p $out/bin
-    cp $src/stargate/main.sh $out/bin/stargate
-    chmod +x $out/bin/stargate
+    mkdir -p $out/lib
+
+    cp -r $src/. $out/lib
+
+    chmod +x $out/lib/stargate/main.sh
+    makeWrapper $out/lib/stargate/main.sh $out/bin/stargate \
+      --suffix PATH : ${lib.makeBinPath [ gum scrub disko ]}
   '';
 }
