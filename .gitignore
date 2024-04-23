@@ -1,0 +1,10 @@
+# Stargate
+artifacts
+*.qcow2
+
+# Devbox
+.devbox
+
+# Ignore build outputs from performing a nix-build or `nix build` command
+result
+result-*

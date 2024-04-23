@@ -1,0 +1,13 @@
+{
+  "packages": [],
+  "shell": {
+    "init_hook": [
+      "mkdir -p artifacts"
+    ],
+    "scripts": {
+      "test": [
+        "echo \"Error: no test specified\" && exit 1"
+      ]
+    }
+  }
+}
