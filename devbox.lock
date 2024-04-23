@@ -1,4 +1,45 @@
 {
   "lockfile_version": "1",
-  "packages": {}
+  "packages": {
+    "fd@latest": {
+      "last_modified": "2024-04-19T21:36:04Z",
+      "resolved": "github:NixOS/nixpkgs/92d295f588631b0db2da509f381b4fb1e74173c5#fd",
+      "source": "devbox-search",
+      "version": "9.0.0",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/5nbc1877dad6jwmz5bss0767p85sng73-fd-9.0.0"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/1rmq8swz6g7a41jaz8p7an0ja64fz84b-fd-9.0.0"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/fqfrx0xw04jcz28w0jp7rn92qg14wnkj-fd-9.0.0"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/pd5a5142zffq1rksddsii3r0dbbx9qm2-fd-9.0.0"
+        }
+      }
+    },
+    "nixos-shell@latest": {
+      "last_modified": "2024-04-19T21:36:04Z",
+      "resolved": "github:NixOS/nixpkgs/92d295f588631b0db2da509f381b4fb1e74173c5#nixos-shell",
+      "source": "devbox-search",
+      "version": "1.1.0",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/3lr6hyfr16ciavcvyaazis1rdvzi2h5x-nixos-shell-1.1.0"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/6175nf496hc2wq42r0w9cmadq7qp6bnd-nixos-shell-1.1.0"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/vl3wy078ysbppwwn0x9n57w3p8xq20fl-nixos-shell-1.1.0"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/42cpb73nyyspwwhi86fa1zqv3p9gj549-nixos-shell-1.1.0"
+        }
+      }
+    }
+  }
 }

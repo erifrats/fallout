@@ -1,5 +1,8 @@
 {
-  "packages": [],
+  "packages": [
+    "nixos-shell@latest",
+    "fd@latest"
+  ],
   "shell": {
     "init_hook": [
       "mkdir -p artifacts"
@@ -8,7 +11,9 @@
       "test": [
         "echo \"Error: no test specified\" && exit 1"
       ],
-      "build": "sh ./scripts/build.sh"
+      "build": "sh ./scripts/build.sh",
+      "container": "nixos-shell",
+      "gc": "sh ./scripts/gc.sh"
     }
   }
 }
