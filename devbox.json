@@ -8,12 +8,10 @@
       "mkdir -p artifacts"
     ],
     "scripts": {
-      "test": [
-        "echo \"Error: no test specified\" && exit 1"
-      ],
-      "build": "sh ./scripts/build.sh",
-      "container": "nixos-shell",
-      "gc": "sh ./scripts/gc.sh"
+      "build":      "sh ./scripts/build.sh",
+      "container":  "nixos-shell -I nixpkgs=channel:nixpkgs-unstable",
+      "gc":         "sh ./scripts/gc.sh",
+      "preview":    "bash ./scripts/preview.sh"
     }
   }
 }
