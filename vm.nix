@@ -58,7 +58,6 @@ with builtins;
       ''
     )
     gum
-    scrub
     disko
   ];
 

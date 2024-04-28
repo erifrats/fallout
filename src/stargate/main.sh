@@ -160,7 +160,7 @@ LUKS_SECRET="$(get_password "Enter a LUKS password")"
 }
 
 if gum_confirm "Perform destructive wipe on the disk?"; then
-    scrub --pattern usarmy "$DISK" || oops "Data sanitization failed."
+    shred -v "$DISK" || oops "Data sanitization failed."
 fi
 
 # Apply the disk configuration.

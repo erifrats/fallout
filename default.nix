@@ -2,7 +2,6 @@
 , stdenv
 , makeWrapper
 , gum
-, scrub
 , disko
 }:
 
@@ -21,6 +20,6 @@ stdenv.mkDerivation {
 
     chmod +x $out/lib/stargate/main.sh
     makeWrapper $out/lib/stargate/main.sh $out/bin/stargate \
-      --suffix PATH : ${lib.makeBinPath [ gum scrub disko ]}
+      --suffix PATH : ${lib.makeBinPath [ gum disko ]}
   '';
 }
