@@ -8,5 +8,11 @@ collectables=(
 )
 
 for entry in "${collectables[@]}"; do
-    fd -I -H -L -g "$entry" -x echo Collecting {} \; -x rm -rf {}
+    fd \
+        -I \
+        -H \
+        -L \
+        -g "$entry" \
+        -x echo Collecting {} \; \
+        -x rm -rf {}
 done
