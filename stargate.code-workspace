@@ -21,6 +21,7 @@
             "**/CVS": true,
             "**/.DS_Store": true,
             "**/Thumbs.db": true,
+            "**/*.qcow2": true,
             ".devbox": true,
             "devbox.lock": true,
             "result": true,
