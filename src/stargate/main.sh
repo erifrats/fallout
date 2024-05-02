@@ -109,6 +109,17 @@ function get_username() {
     printf "$username"
 }
 
+function reboot() {
+    local seconds=6
+
+    for ((i = $seconds; i > 0; i--)); do
+        printf 'Rebooting in %s\r' "$i"
+        sleep 1
+    done
+
+    "$(which reboot)"
+}
+
 if [[ $# -eq 0 ]]; then
     oops "Usage: $0 [disk]"
 fi
@@ -195,17 +206,4 @@ fi
 #     $EDITOR /mnt/etc/nixos/configuration.nix
 # fi
 
-# Perform installation and on success, reboot in x seconds.
-nixos-install --no-root-passwd && {
-    timeout=7
-    start="$(($(date +%s) + $timeout))"
-
-    while [ "$start" -ge $(date +%s) ]; do
-        time="$(($start - $(date +%s)))"
-        printf 'Rebooting in %s\r' "$(date -u -d "@$time" +%S)"
-    done
-
-    reboot
-}
-
-oops "Installation failed."
+nixos-install --no-root-passwd && reboot || oops "Installation failed."
