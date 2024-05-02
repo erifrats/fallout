@@ -21,7 +21,7 @@ with builtins;
 
   virtualisation = {
     cores = 2;
-    memorySize = 1024 * 2;
+    memorySize = 2 * 1024;
 
     # Images will be in `/tmp`.
     emptyDiskImages = [
@@ -29,7 +29,7 @@ with builtins;
       (20 * 1024)
     ];
 
-    diskSize = 1 * 1024;
+    diskSize = 4 * 1024;
     diskImage = "artifacts/vm.qcow2";
     qemu.diskInterface = "scsi";
 
