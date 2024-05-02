@@ -3,10 +3,10 @@
 source "/etc/os-release"
 source "$(dirname "$0")/bpt/bpt.sh"
 
-unset HASHED_PASSWORD
 unset LUKS_SECRET
 unset NIXOS_CONFIG
 unset USERNAME
+unset PASSWORD
 
 ACCENT_COLOR="#bb8dfc"
 DISK="$1"
@@ -145,7 +145,7 @@ fi
 clear
 
 USERNAME="$(get_username "Enter your prefered username")"
-HASHED_PASSWORD="$(mkpasswd "$(get_password "Enter a password")")"
+PASSWORD="$(mkpasswd "$(get_password "Enter a password")")"
 LUKS_SECRET="$(get_password "Enter a LUKS password")"
 
 # Generate the nixos configuration.
@@ -162,7 +162,7 @@ LUKS_SECRET="$(get_password "Enter a LUKS password")"
     done
 
     unset USERNAME
-    unset HASHED_PASSWORD
+    unset PASSWORD
 }
 
 if gum_confirm "Perform destructive wipe on the disk?"; then

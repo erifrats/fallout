@@ -8,7 +8,7 @@ NIXOS_TEMPLATE="$ROOT/src/nixos"
 
 {
     USERNAME="guest"
-    HASHED_PASSWORD="$(mkpasswd "$USERNAME")"
+    PASSWORD="$(mkpasswd "$USERNAME")"
     VERSION_ID="$(nix-instantiate --eval --expr "builtins.substring 0 5 ((import <nixos> {}).lib.version)")"
 
     find "$NIXOS_TEMPLATE" -type f | while read -r file; do
