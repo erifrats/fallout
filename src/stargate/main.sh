@@ -4,6 +4,7 @@ source "/etc/os-release"
 source "$(dirname "$0")/bpt/bpt.sh"
 
 ACCENT_COLOR="#bb8dfc"
+CURRENT_SYSTEM=
 DISK="$1"
 DISK_SIZE=
 LUKS_FILE="/run/keys/luks.key"
@@ -162,6 +163,7 @@ LUKS_SECRET="$(get_password "Enter a LUKS password")"
 # Generate the nixos configuration.
 {
     NIXOS_CONFIG="$(mktemp -d)"
+    CURRENT_SYSTEM="$(nix-instantiate --eval --expr 'builtins.currentSystem' | sed 's/"//g')"
 
     find "$NIXOS_TEMPLATE" -type f | while read -r file; do
         redirect="${file/$NIXOS_TEMPLATE/$NIXOS_CONFIG}"

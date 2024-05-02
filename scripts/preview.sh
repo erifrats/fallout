@@ -15,6 +15,7 @@ NIXOS_TEMPLATE="$PWD/src/nixos"
             --expr "builtins.substring 0 5 ((import <nixos> {}).lib.version)" |
             sed 's/"//g'
     )"
+    CURRENT_SYSTEM="$(nix-instantiate --eval --expr 'builtins.currentSystem' | sed 's/"//g')"
 
     find "$NIXOS_TEMPLATE" -type f | while read -r file; do
         redirect="${file/$NIXOS_TEMPLATE/$NIXOS_CONFIG}"
@@ -40,5 +41,5 @@ NIXOS_TEMPLATE="$PWD/src/nixos"
     popd
 }
 
-nix build "${NIXOS_CONFIG}#nixosConfigurations.x86_64-linux.stargate.config.system.build.vm" &&
+nix build "${NIXOS_CONFIG}#nixosConfigurations.stargate.config.system.build.vm" &&
     exec "$PWD/result/bin/run-stargate-vm" "$@"
