@@ -34,7 +34,7 @@ with builtins;
     qemu.diskInterface = "scsi";
 
     mountHostNixStore = true;
-    writableStoreUseTmpfs = false;
+    writableStoreUseTmpfs = true;
 
     qemu.consoles = [ "console=tty1" ];
   };
