@@ -206,4 +206,18 @@ fi
 #     $EDITOR /mnt/etc/nixos/configuration.nix
 # fi
 
-nixos-install --no-root-passwd && reboot || oops "Installation failed."
+# Initialize git for flake.
+{
+    cd /mnt/etc/nixos
+
+    nix --extra-experimental-features 'nix-command flakes' flake lock || oops "Flake lock failed."
+
+    git config --global user.email "root@stargate.local"
+    git config --global user.name "Stargate Installer"
+
+    git init .
+    git add .
+    git commit -m "Initial commit"
+}
+
+nixos-install --no-root-passwd --flake .#stargate && reboot || oops "Installation failed."

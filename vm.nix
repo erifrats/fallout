@@ -59,6 +59,7 @@ with builtins;
     )
     gum
     disko
+    git
   ];
 
   environment.loginShellInit = ''
