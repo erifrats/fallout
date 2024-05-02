@@ -135,9 +135,15 @@ if ! lsblk -no TYPE "$DISK" | grep -q "disk"; then
     oops "The disk cannot be a partition."
 fi
 
+DISK="/dev/disk/by-id/$(lsblk -dno ID-LINK "$DISK")"
+DISK_SIZE=$(blockdev --getsize64 "$DISK")
+
+if ((DISK_SIZE < 20 * 1024 ** 3)); then
+    oops "Disk size must be at least 20GB."
+fi
+
 clear
 
-DISK="/dev/disk/by-id/$(lsblk -dno ID-LINK "$DISK")"
 USERNAME="$(get_username "Enter your prefered username")"
 HASHED_PASSWORD="$(mkpasswd "$(get_password "Enter a password")")"
 LUKS_SECRET="$(get_password "Enter a LUKS password")"
