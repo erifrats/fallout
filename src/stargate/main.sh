@@ -3,14 +3,14 @@
 source "/etc/os-release"
 source "$(dirname "$0")/bpt/bpt.sh"
 
-unset LUKS_SECRET
-unset NIXOS_CONFIG
-unset USERNAME
-unset PASSWORD
-
 ACCENT_COLOR="#bb8dfc"
 DISK="$1"
+DISK_SIZE=
 LUKS_FILE="/run/keys/luks.key"
+LUKS_SECRET=
+USERNAME=
+PASSWORD=
+NIXOS_CONFIG=
 NIXOS_TEMPLATE="$(dirname "$(dirname "$0")..")/nixos"
 
 function oops() {
