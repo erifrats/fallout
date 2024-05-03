@@ -5,14 +5,14 @@ source "$(dirname "$0")/bpt/bpt.sh"
 
 ACCENT_COLOR="#bb8dfc"
 CURRENT_SYSTEM=
-DISK="$1"
 DISK_SIZE=
+DISK="$1"
 LUKS_FILE="/run/keys/luks.key"
 LUKS_SECRET=
-USERNAME=
-PASSWORD=
 NIXOS_CONFIG=
 NIXOS_TEMPLATE="$(dirname "$(dirname "$0")..")/nixos"
+PASSWORD=
+USERNAME=
 
 function oops() {
     echo "$0:" "$@" >&2
