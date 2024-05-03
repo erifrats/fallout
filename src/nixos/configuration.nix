@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, config, self, ... }:
 
 {
   imports = [
@@ -128,6 +128,12 @@
     enable = true;
     dates = "daily";
     persistent = true;
+    flake = self.outPath;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "-L" # print build logs
+    ];
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
