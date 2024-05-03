@@ -9,10 +9,11 @@ DISK_SIZE=
 DISK="$1"
 LUKS_FILE="/run/keys/luks.key"
 LUKS_SECRET=
-NIXOS_CONFIG=
+NIXOS_CONFIG="$(mktemp -d)"
 NIXOS_TEMPLATE="$(dirname "$(dirname "$0")..")/nixos"
 PASSWORD=
 USERNAME=
+HASHED_PASSWORD=
 
 function oops() {
     echo "$0:" "$@" >&2
@@ -157,13 +158,13 @@ fi
 clear
 
 USERNAME="$(get_username "Enter your prefered username")"
-PASSWORD="$(mkpasswd "$(get_password "Enter a password")")"
+PASSWORD="$(get_password "Enter a password")"
 LUKS_SECRET="$(get_password "Enter a LUKS password")"
 
 # Generate the nixos configuration.
 {
-    NIXOS_CONFIG="$(mktemp -d)"
     CURRENT_SYSTEM="$(nix-instantiate --eval --expr 'builtins.currentSystem' | sed 's/"//g')"
+    HASHED_PASSWORD="$(mkpasswd "$PASSWORD")"
 
     find "$NIXOS_TEMPLATE" -type f | while read -r file; do
         redirect="${file/$NIXOS_TEMPLATE/$NIXOS_CONFIG}"
@@ -173,9 +174,6 @@ LUKS_SECRET="$(get_password "Enter a LUKS password")"
 
         unset redirect
     done
-
-    unset USERNAME
-    unset PASSWORD
 }
 
 if gum_confirm "Perform destructive wipe on the disk?"; then
@@ -186,8 +184,6 @@ fi
 {
     # Generate the LUKS key file for disko.
     printf "$LUKS_SECRET" >"$LUKS_FILE"
-    unset LUKS_SECRET
-
     disko --mode disko "$NIXOS_CONFIG/disk-configuration.nix" || oops "Disko failed."
 }
 

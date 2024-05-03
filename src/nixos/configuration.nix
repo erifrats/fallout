@@ -71,7 +71,7 @@
   users.users."{{ USERNAME }}" = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    hashedPassword = "{{ PASSWORD }}";
+    hashedPassword = "{{ HASHED_PASSWORD }}";
     packages = with pkgs; lib.optional config.services.xserver.enable [
       firefox
       vscodium.fhs
