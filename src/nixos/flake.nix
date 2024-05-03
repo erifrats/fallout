@@ -4,21 +4,14 @@
     disko.url = "github:nix-community/disko";
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , disko
-    , ...
-    } @ inputs:
-
-    {
-      nixosConfigurations.stargate = nixpkgs.lib.nixosSystem {
-        system = "{{ CURRENT_SYSTEM }}";
-        specialArgs = inputs;
-        modules = [
-          ./configuration.nix
-          disko.nixosModules.disko
-        ];
-      };
+  outputs = { nixpkgs, disko, ... } @ inputs: {
+    nixosConfigurations.stargate = nixpkgs.lib.nixosSystem {
+      system = "{{ CURRENT_SYSTEM }}";
+      specialArgs = inputs;
+      modules = [
+        ./configuration.nix
+        disko.nixosModules.disko
+      ];
     };
+  };
 }
