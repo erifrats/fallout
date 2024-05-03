@@ -1,11 +1,11 @@
 { lib
-, pkgs
 , modulesPath
 , ...
 }:
 
 with lib;
 with builtins;
+with import ./pkgs { };
 
 {
   imports = [
@@ -16,7 +16,7 @@ with builtins;
   boot.kernelParams = [ "quiet" ];
 
   nix.nixPath = [
-    "nixpkgs=${pkgs.path}"
+    "nixpkgs=${path}"
   ];
 
   virtualisation = {
@@ -52,11 +52,7 @@ with builtins;
   };
 
   environment.systemPackages = with pkgs; [
-    (
-      writeShellScriptBin "stargate" ''
-        exec bash /src/src/stargate/main.sh "$@"
-      ''
-    )
+    stargate
     gum
     disko
     git

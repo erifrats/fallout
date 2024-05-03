@@ -8,8 +8,8 @@
       "mkdir -p artifacts"
     ],
     "scripts": {
-      "build":      "bash ./scripts/build.sh",
-      "container":  "nixos-shell -I nixpkgs=channel:nixpkgs-unstable",
+      "build":      "nix-build",
+      "container":  "nixos-shell",
       "gc":         "bash ./scripts/gc.sh",
       "preview":    "bash ./scripts/preview.sh"
     }

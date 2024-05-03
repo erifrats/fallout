@@ -10,17 +10,13 @@
         nix-shell -p git --run "git $*"
     }
 
-    build() {
-        nix-build --expr "with import <nixpkgs> {}; callPackage "$1" {}"
-    }
-
     tmp="$(mktemp -d)"
 
     cd "$tmp"
 
     # Fetch and build the source code.
     git clone https://github.com/erifrats/stargate.git . 1> /dev/null || oops "fetch failed"
-    build ./default.nix || oops "build failed"
+    nix-build || oops "build failed"
 
     # Install stargate.
     nix-env -i ./result || oops "install failed"
