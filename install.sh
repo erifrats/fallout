@@ -10,16 +10,12 @@
         nix-shell -p git --run "git $*"
     }
 
+    tag="$(curl -s -L https://api.github.com/repos/erifrats/stargate/tags | jq -r '.[0].name')"
     tmp="$(mktemp -d)"
 
-    cd "$tmp"
-
     # Fetch and build the source code.
-    git clone https://github.com/erifrats/stargate.git . 1> /dev/null || oops "fetch failed"
-    nix-build || oops "build failed"
-
-    # Install stargate.
-    nix-env -i ./result || oops "install failed"
+    git clone --recursive --branch="$tag" https://github.com/erifrats/stargate.git "$tmp" 1> /dev/null || oops "fetch failed"
+    nix-env -i -f "$tmp" || oops "install failed"
 
     exec stargate "$@"
 }
