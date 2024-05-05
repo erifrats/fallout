@@ -103,6 +103,7 @@
     nil
     direnv
     helix
+    zellij
   ];
 
   # List services that you want to enable:
