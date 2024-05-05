@@ -32,19 +32,25 @@ Ensure that you have [Devbox](https://www.jetify.com/devbox) installed on your s
 
 ### Workflow
 
-1. To run the development container, execute the following command:
+1. To run the dev container, execute the following command:
 
     ```
     devbox run container
     ```
 
-2. To run stargate in the container, execute the following command:
+2. To run Stargate, execute the following command in the container shell:
 
     ```
     stargate
     ```
 
-3. To terminate the container, press `Ctrl + A`, then `X`.
+3. To garbage collect the artifacts generated, execute the following command:
+
+    ```
+    devbox run gc
+    ```
+
+4. To terminate the container, press `Ctrl + A`, then `X`.
 
 ## License
 
