@@ -1,8 +1,8 @@
 # Stargate
 
-![GitHub Tag](https://img.shields.io/github/v/tag/erifrats/stargate?label=latest)
+![GitHub Tag](https://img.shields.io/github/v/tag/erifrats/stargate?label=latest&color=bb8dfc)
 
-A NixOS installer designed to offer good defaults and a secure environment for [Starfire](https://github.com/erifrats/starfire) with a glamorous user interface.
+A glamorous [NixOS](https://nixos.org) installer, designed to offer good defaults and a secure environment for [Starfire](https://github.com/erifrats/starfire).
 
 ## Installation
 
@@ -34,7 +34,7 @@ Ensure that you have [Devbox](https://www.jetify.com/devbox) installed on your s
 
 1. To run the development container, execute the following command:
 
-    ```bash
+    ```
     devbox run container
     ```
 
