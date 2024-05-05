@@ -11,6 +11,4 @@ lib.mergeAttrs pkgs {
   # it seems that recent changes to the `huh` library have caused issues with margins and paddings.
   # We'll be sticking to using v0.13.0 until a fix is available.
   gum = callPackage ./gum { };
-
-  stargate = callPackage ./stargate { };
 }

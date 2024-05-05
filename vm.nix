@@ -52,7 +52,9 @@ with import ./pkgs { };
   };
 
   environment.systemPackages = with pkgs; [
-    stargate
+    (writeShellScriptBin "stargate" ''
+      exec bash /src/src/stargate/main.sh "$@"
+    '')
     gum
     disko
     git
