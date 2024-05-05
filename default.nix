@@ -1,4 +1,4 @@
-with import ./pkgs { };
+with import ./pkgs;
 
 stdenv.mkDerivation {
   name = "stargate";
