@@ -5,7 +5,7 @@
 
 with lib;
 with builtins;
-with import ./pkgs { };
+with import ./pkgs;
 
 {
   imports = [
