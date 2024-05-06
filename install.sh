@@ -10,6 +10,10 @@
         nix-shell -p git --run "git $*"
     }
 
+    jq() {
+        nix-shell -p jq --run "jq $*"
+    }
+
     tag="$(curl -s -L https://api.github.com/repos/erifrats/stargate/tags | jq -r '.[0].name')"
     tmp="$(mktemp -d)"
 
