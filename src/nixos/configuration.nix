@@ -77,6 +77,7 @@
       vscodium.fhs
       keepassxc
       gsmartcontrol
+      gparted
     ];
   };
 
