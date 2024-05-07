@@ -24,7 +24,7 @@
               size = "100%";
               content = {
                 type = "luks";
-                name = "crypto";
+                name = "nixos";
                 extraOpenArgs = [ ];
                 settings = {
                   allowDiscards = true;
@@ -44,7 +44,6 @@
     lvm_vg = {
       nixos = {
         type = "lvm_vg";
-
         lvs = {
           swap = {
             size = "8GB";
