@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ lib, pkgs, config, self, ... }:
+{ self, config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -93,18 +93,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
-    tree
     xclip
 
     # Development
     git
     lazygit
     devbox
-    nil
-    direnv
     helix
-    zellij
+
+    # Nix Development
+    nixpkgs-fmt
+    nil
   ];
 
   # List services that you want to enable:
