@@ -96,8 +96,9 @@
     xclip
 
     # Development
-    git
     lazygit
+    git-credential-manager
+    dotnet-runtime_7 # `git-credential-manager` is a .NET application.
     devbox
     helix
 
@@ -105,6 +106,10 @@
     nixpkgs-fmt
     nil
   ];
+
+  environment.sessionVariables = {
+    DOTNET_ROOT = "${pkgs.dotnet-runtime_7}";
+  };
 
   # List services that you want to enable:
 
