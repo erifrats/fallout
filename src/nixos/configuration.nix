@@ -72,7 +72,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     hashedPassword = "{{ HASHED_PASSWORD }}";
-    packages = with pkgs; lib.optional config.services.xserver.enable [
+    packages = with pkgs; lib.optionals config.services.xserver.enable [
       firefox
       vscodium.fhs
       keepassxc
