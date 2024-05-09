@@ -8,7 +8,7 @@ NIXOS_TEMPLATE="$PWD/src/nixos"
 # Generate from template.
 {
     USERNAME="guest"
-    PASSWORD="$(mkpasswd "$USERNAME")"
+    HASHED_PASSWORD="$(mkpasswd "$USERNAME")"
     VERSION_ID="$(
         nix-instantiate \
             --eval \
