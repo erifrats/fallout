@@ -20,8 +20,8 @@ with import ./pkgs;
   ];
 
   virtualisation = {
-    cores = 2;
-    memorySize = 2 * 1024;
+    cores = 4;
+    memorySize = 4 * 1024;
 
     # Images will be in `/tmp`.
     emptyDiskImages = [
