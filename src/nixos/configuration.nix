@@ -76,8 +76,6 @@
       firefox
       vscodium.fhs
       keepassxc
-      gsmartcontrol
-      gparted
     ];
   };
 
@@ -105,7 +103,12 @@
     # Nix Development
     nixpkgs-fmt
     nil
-  ];
+  ]
+  ++
+  (lib.optionals config.services.xserver.enable [
+    gparted
+    gsmartcontrol
+  ]);
 
   environment.sessionVariables = {
     DOTNET_ROOT = "${pkgs.dotnet-runtime_7}";
