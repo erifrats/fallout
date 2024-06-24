@@ -9,7 +9,7 @@
   };
 
   outputs = { nixpkgs, disko, home-manager, ... } @ inputs: {
-    nixosConfigurations.stargate = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.starship = nixpkgs.lib.nixosSystem {
       system = "{{ CURRENT_SYSTEM }}";
       specialArgs = inputs;
       modules = [

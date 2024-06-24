@@ -127,7 +127,7 @@ if [[ $# -eq 0 ]]; then
 fi
 
 if [ "$VARIANT_ID" != "installer" ]; then
-    oops "Stargate can only be executed from the NixOS installer environment."
+    oops "starship can only be executed from the NixOS installer environment."
 fi
 
 # Restart with root privileges.
@@ -135,9 +135,9 @@ if [ "$(id -u)" != "0" ]; then
     clear
     gum_error \
         --timeout="3000ms" \
-        "Stargate requires root privileges. Restarting with sudo..."
+        "Starship requires root privileges. Restarting with sudo..."
 
-    exec sudo stargate "$@"
+    exec sudo starship "$@"
 fi
 
 if [[ ! -b "$DISK" ]]; then
@@ -210,12 +210,12 @@ fi
 
     nix --extra-experimental-features 'nix-command flakes' flake lock || oops "Flake lock failed."
 
-    git config --global user.email "root@stargate.local"
-    git config --global user.name "Stargate Installer"
+    git config --global user.email "root@starship.local"
+    git config --global user.name "Starship Installer"
 
     git init .
     git add .
     git commit -m "Initial commit"
 }
 
-nixos-install --no-root-passwd --flake .#stargate && reboot || oops "Installation failed."
+nixos-install --no-root-passwd --flake .#starship && reboot || oops "Installation failed."

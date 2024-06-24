@@ -5,8 +5,8 @@
             "path": "."
         },
         {
-            "name": "stargate",
-            "path": "src/stargate"
+            "name": "starship",
+            "path": "src/starship"
         },
         {
             "name": "nixos",
@@ -28,7 +28,7 @@
             "artifacts": true,
             "src": true,
             "LICENSE": true,
-            "stargate.code-workspace": true
+            "starship.code-workspace": true
         }
     }
 }

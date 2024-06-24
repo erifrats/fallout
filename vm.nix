@@ -52,8 +52,8 @@ with import ./pkgs;
   };
 
   environment.systemPackages = with pkgs; [
-    (writeShellScriptBin "stargate" ''
-      exec bash /src/src/stargate/main.sh "$@"
+    (writeShellScriptBin "starship" ''
+      exec bash /src/src/starship/main.sh "$@"
     '')
     gum
     disko

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$PWD/src/stargate/bpt/bpt.sh"
+source "$PWD/src/starship/bpt/bpt.sh"
 
 NIXOS_CONFIG="$PWD/artifacts/nixos"
 NIXOS_TEMPLATE="$PWD/src/nixos"
@@ -41,5 +41,5 @@ NIXOS_TEMPLATE="$PWD/src/nixos"
     popd
 }
 
-nix build "${NIXOS_CONFIG}#nixosConfigurations.stargate.config.system.build.vm" &&
-    exec "$PWD/result/bin/run-stargate-vm" "$@"
+nix build "${NIXOS_CONFIG}#nixosConfigurations.starship.config.system.build.vm" &&
+    exec "$PWD/result/bin/run-starship-vm" "$@"

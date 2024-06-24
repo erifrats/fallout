@@ -14,12 +14,12 @@
         nix-shell -p jq --run "jq $*"
     }
 
-    tag="$(curl -s -L https://api.github.com/repos/erifrats/stargate/tags | jq -r '.[0].name')"
+    tag="$(curl -s -L https://api.github.com/repos/erifrats/starship/tags | jq -r '.[0].name')"
     tmp="$(mktemp -d)"
 
     # Fetch and build the source code.
-    git clone --recursive --branch="$tag" https://github.com/erifrats/stargate.git "$tmp" 1> /dev/null || oops "fetch failed"
+    git clone --recursive --branch="$tag" https://github.com/erifrats/starship.git "$tmp" 1> /dev/null || oops "fetch failed"
     nix-env -i -f "$tmp" || oops "install failed"
 
-    exec stargate "$@"
+    exec starship "$@"
 }

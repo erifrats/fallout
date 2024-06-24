@@ -1,7 +1,7 @@
 with import ./pkgs;
 
 stdenv.mkDerivation {
-  name = "stargate";
+  name = "starship";
 
   src = ./src;
 
@@ -13,9 +13,9 @@ stdenv.mkDerivation {
 
     cp -r $src/. $out/lib
 
-    chmod +x $out/lib/stargate/main.sh
+    chmod +x $out/lib/starship/main.sh
 
-    makeWrapper $out/lib/stargate/main.sh $out/bin/stargate \
+    makeWrapper $out/lib/starship/main.sh $out/bin/starship \
       --suffix PATH : ${lib.makeBinPath [ gum disko git ]}
   '';
 }

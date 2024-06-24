@@ -1,6 +1,6 @@
-# Stargate
+# Starship
 
-![GitHub Tag](https://img.shields.io/github/v/tag/erifrats/stargate?label=latest&color=bb8dfc)
+![GitHub Tag](https://img.shields.io/github/v/tag/erifrats/starship?label=latest)
 
 A glamorous [NixOS](https://nixos.org) installer, designed to offer good defaults and a secure environment for [Starfire](https://github.com/erifrats/starfire).
 
@@ -19,7 +19,7 @@ Ensure you are booted into the NixOS installation environment.
 3. Once you've identified the disk (e.g., `/dev/sda`), execute the following command to initiate the installation process:
 
     ```
-    bash <(curl -L https://starfire.pages.dev/install) /dev/sda
+    bash <(curl -L https://raw.githubusercontent.com/erifrats/starship/master/install.sh) /dev/sda
     ```
 
     Replace `/dev/sda` with the appropriate disk identifier as per your system configuration.
@@ -38,10 +38,10 @@ Ensure that you have [Devbox](https://www.jetify.com/devbox) installed on your s
     devbox run container
     ```
 
-2. To run Stargate, execute the following command in the container shell:
+2. To run Starship, execute the following command in the container shell:
 
     ```
-    stargate
+    starship
     ```
 
 3. To garbage collect the artifacts generated, execute the following command:

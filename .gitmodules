@@ -1,4 +1,4 @@
-[submodule "src/stargate/bpt"]
-	path = src/stargate/bpt
+[submodule "src/starship/bpt"]
+	path = src/starship/bpt
 	url = https://github.com/husixu1/bpt
 	branch = master
